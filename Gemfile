@@ -3,19 +3,18 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql2'
+gem 'devise'
 
 group :development do
   gem 'rspec-rails'
   gem 'annotate-models'
   gem 'faker'
-  gem 'devise'
 end
 
 group :test do
   gem 'rspec'
   gem 'webrat'
   gem 'factory_girl_rails'
-  gem 'devise'
 end
 
 # Bundle edge Rails instead:
