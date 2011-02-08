@@ -10,7 +10,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110207185709) do
+ActiveRecord::Schema.define(:version => 20110208034152) do
+
+  create_table "identities", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "identity_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "company_name"
+    t.string   "title"
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "address"
+    t.string   "email"
+    t.string   "cell"
+    t.string   "phone"
+    t.string   "skype"
+    t.string   "messenger"
+    t.string   "gtalk"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "flickr"
+    t.string   "blog"
+    t.string   "youtube"
+    t.string   "birthday"
+    t.string   "photo_url"
+    t.text     "description"
+    t.string   "qr_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "identities", ["user_id"], :name => "index_identities_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

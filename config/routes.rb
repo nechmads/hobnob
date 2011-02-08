@@ -4,7 +4,7 @@ Hobnob::Application.routes.draw do
   end
 
   resources :users
-  
+  resources :identities
   resources :authentication, :only => [:create]
   
   root :to => "home#index"

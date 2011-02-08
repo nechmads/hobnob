@@ -9,6 +9,7 @@ class AuthenticationController < ApplicationController
     if found_user == nil
       @user.first_name = params["first_name"]
       @user.last_name = params["last_name"]
+      @user.reset_authentication_token
       if @user.save
         sign_in @user
         render :json => current_user
