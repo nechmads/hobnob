@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208034152) do
+ActiveRecord::Schema.define(:version => 20110208162935) do
 
   create_table "identities", :force => true do |t|
     t.integer  "user_id"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(:version => 20110208034152) do
   end
 
   add_index "identities", ["user_id"], :name => "index_identities_on_user_id"
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "lat"
+    t.string   "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "locations", ["user_id"], :name => "index_locations_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
