@@ -1,6 +1,14 @@
 Hobnob::Application.routes.draw do
-  resources :users
+  devise_for :users do
+    get "signin", :to => "devise/sessions#new"
+  end
 
+  resources :users
+  
+  resources :authentication, :only => [:create]
+  
+  root :to => "home#index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
