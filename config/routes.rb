@@ -4,6 +4,8 @@ Hobnob::Application.routes.draw do
   end
 
   resources :users
+  match "nearby" => "users#nearby"
+  
   resources :identities
   resources :authentication, :only => [:create]
   

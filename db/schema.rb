@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208162935) do
+ActiveRecord::Schema.define(:version => 20110208224548) do
+
+  create_table "checkins", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "identities", :force => true do |t|
     t.integer  "user_id"
@@ -47,14 +54,20 @@ ActiveRecord::Schema.define(:version => 20110208162935) do
 
   create_table "locations", :force => true do |t|
     t.string   "name"
-    t.integer  "user_id"
+    t.integer  "locationable_id"
+    t.string   "locationable_type"
     t.string   "lat"
     t.string   "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "locations", ["user_id"], :name => "index_locations_on_user_id"
+  create_table "places", :force => true do |t|
+    t.string   "lat"
+    t.string   "lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -77,6 +90,9 @@ ActiveRecord::Schema.define(:version => 20110208162935) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "linkedin_id"
+    t.string   "lat"
+    t.string   "lng"
+    t.integer  "default_identity_id"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

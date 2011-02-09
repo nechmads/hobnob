@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :protect_resource, :only => [ :nearby ]
+  
   # GET /users
   # GET /users.xml
   def index
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1.xml
   def show
     @user = User.find(params[:id])
-    #@found = Location.within(0.1, :origin => [37.794,-122.395]).first
+    @found = Location.within(0.1, :origin => [37.794,-122.395]).first
     
     respond_to do |format|
       format.html # show.html.erb
@@ -79,6 +81,16 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def nearby
+    respond_to do |format|
+      format.json {
+        @near_by_users = User.within(10, :origin => current_user).all
+        @identities = @near_by_users.map {|user| user.id == current_user.id ? nil : Identity.find(user.default_identity_id)  }
+        render :json => @identities.compact
+      }
     end
   end
 end

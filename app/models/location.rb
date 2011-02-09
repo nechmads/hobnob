@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  belongs_to :user, :polymorphic => true
+  belongs_to :locationable, :polymorphic => true
   acts_as_mappable  :default_units => :miles, 
   #                  :default_formula => :sphere, 
   #                  :distance_field_name => :distance,

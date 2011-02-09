@@ -1,13 +1,22 @@
 Factory.sequence :email do |n|
   "person#{n}@example.com"
 end
-  
+
+Factory.sequence :lat do |n|
+  "37.7#{n}417"
+end
+
+Factory.sequence :lng do |n|
+  "-122.3#{n}568"
+end
+
 Factory.define :user do |user|
   user.first_name "john"
   user.last_name "malkovich"
   user.email { Factory.next(:email) }
   user.password "password"
-  #user.password_confirmation "password"
+  user.lat { Factory.next(:lat) }
+  user.lng { Factory.next(:lng) }
   user.linkedin_id "nechmads"
 end
 
