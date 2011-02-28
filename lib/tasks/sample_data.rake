@@ -10,7 +10,7 @@ namespace :db do
                         :password => "password")
     
     # Create additional users
-    99.times do |n|
+    20.times do |n|
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       email = "example-#{n+1}@example.com"
@@ -56,7 +56,7 @@ namespace :db do
     # Create places
     20.times do |n|
       name = Faker::Company.name
-      Place.create(:name => name, :lat => "37.7#{n}417", :lng => "-122.3#{n}568", :isTimeBase => true, :start => Time.now - 10.days, :end => Time.now + 200.days, :  => "468aa2b5f964a52060481fe3")
+      Place.create(:name => name, :lat => "37.7#{n}417", :lng => "-122.3#{n}568", :isTimeBase => true, :start => Time.now - 10.days, :end => Time.now + 200.days, :foursquare_id => "468aa2b5f964a52060481fe3")
     end
     
     # Create events
