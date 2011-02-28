@@ -6,11 +6,11 @@ namespace :db do
     Rake::Task['db:reset'].invoke
     
     # Create one known user
-    admin = User.create(:first_name => "john", :last_name => "malkovich", :email => "john@malkovich.com", 
-                        :password => "password")
+    #admin = User.create(:first_name => "john", :last_name => "malkovich", :email => "john@malkovich.com", 
+    #                    :password => "password")
     
     # Create additional users
-    20.times do |n|
+    40.times do |n|
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       email = "example-#{n+1}@example.com"
