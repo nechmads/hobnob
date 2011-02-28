@@ -10,7 +10,7 @@ namespace :db do
     #                    :password => "password")
     
     # Create additional users
-    40.times do |n|
+    20.times do |n|
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       email = "example-#{n+1}@example.com"
