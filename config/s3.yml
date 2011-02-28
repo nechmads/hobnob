@@ -1,0 +1,14 @@
+development:
+  bucket: hobnobdevelopment
+  access_key_id: AKIAJK3ZPK4HPH2RMC2A
+  secret_access_key: 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
+
+test:
+  bucket: hobnobtest
+  access_key_id: AKIAJK3ZPK4HPH2RMC2A
+  secret_access_key: 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
+
+production:
+  bucket: hobnob
+  access_key_id: AKIAJK3ZPK4HPH2RMC2A
+  secret_access_key: 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

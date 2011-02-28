@@ -4,10 +4,27 @@ Hobnob::Application.routes.draw do
   end
 
   resources :users
+  match "location" => "users#location", :via => [:put]
+  
   match "nearby" => "users#nearby"
   
   resources :identities
   resources :authentication, :only => [:create]
+
+  resources :places, :only => [:index] do
+    member do
+      get 'checkins'
+      post 'checkin'
+    end
+  end
+  
+  resources :messages, :only => [:create]
+  match "inbox" => "messages#inbox"
+  match "outbox" => "messages#outbox"
+  
+  match "sxsw" => "sxswscrapper#getevents"
+  
+  match ":controller(/:collection)(/:track)(/:event)", :controller => 'events', :action => 'index'
   
   root :to => "home#index"
   

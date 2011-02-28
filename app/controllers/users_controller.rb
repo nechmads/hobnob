@@ -72,6 +72,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def location
+    respond_to do |format|
+      format.json {
+        if current_user.update_attributes(params[:user], :last_location_update_time => Time.now)
+          render :json => current_user
+        else
+          render :status => :bad_request, :json => ""
+        end
+      }
+    end
+  end
+  
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
@@ -88,7 +100,16 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json {
         @near_by_users = User.within(10, :origin => current_user).all
-        @identities = @near_by_users.map {|user| user.id == current_user.id ? nil : Identity.find(user.default_identity_id)  }
+        @identities = Array.new
+        @near_by_users.each do |user|
+          if user.id != current_user.id
+            curr_result = Array.new
+            curr_result << user
+            curr_result << Identity.find(user.default_identity_id)
+            @identities << curr_result
+          end
+        end
+        #@identities = @near_by_users.map {|user| user.id == current_user.id ? nil : Identity.find(user.default_identity_id)  }
         render :json => @identities.compact
       }
     end

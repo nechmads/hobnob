@@ -1,5 +1,5 @@
 class IdentitiesController < ApplicationController 
-  before_filter :protect_resource
+  #before_filter :protect_resource
   
   def create
     respond_to do |format|
@@ -24,6 +24,15 @@ class IdentitiesController < ApplicationController
           identity.qr_url = "http://chart.apis.google.com/chart?chs=200x200&cht=qr&chl=http://code.google.com/apis/chart/image_charts.html"
         end
         render :json => identities
+      }
+    end
+  end
+  
+  def show
+    respond_to do |format|
+      format.json {
+       identity = Identity.find(params[:id])
+       render :json => identity
       }
     end
   end

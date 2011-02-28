@@ -5,10 +5,14 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'mysql2'
 gem 'devise'
 gem "geokit-rails3"
+gem "paperclip", "~> 2.3"
+gem "aws-s3"
+gem 'annotate'
+gem 'mechanize'
+gem 'sanitize'
 
 group :development do
   gem 'rspec-rails'
-  gem 'annotate-models'
   gem 'faker'
 end
 

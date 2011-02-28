@@ -10,13 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208224548) do
+ActiveRecord::Schema.define(:version => 20110226005347) do
 
   create_table "checkins", :force => true do |t|
     t.integer  "user_id"
     t.integer  "place_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "time"
+    t.string   "message"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "event_type"
+    t.integer  "collection"
+    t.integer  "track"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "place_id"
   end
 
   create_table "identities", :force => true do |t|
@@ -48,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20110208224548) do
     t.string   "qr_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "industry"
   end
 
   add_index "identities", ["user_id"], :name => "index_identities_on_user_id"
@@ -62,27 +77,43 @@ ActiveRecord::Schema.define(:version => 20110208224548) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "is_read"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "sent_time"
+  end
+
   create_table "places", :force => true do |t|
     t.string   "lat"
     t.string   "lng"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "isTimeBase"
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "name"
+    t.string   "foursquare_id"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                                    :default => "", :null => false
+    t.string   "encrypted_password",        :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                            :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                            :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "authentication_token"
-    t.integer  "failed_attempts",                     :default => 0
+    t.integer  "failed_attempts",                          :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at"
@@ -93,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20110208224548) do
     t.string   "lat"
     t.string   "lng"
     t.integer  "default_identity_id"
+    t.datetime "last_location_update_time"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
