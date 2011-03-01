@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/models/checkin.rb</string>
+	<string>lib/tasks/sample_data.rake</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,14 +21,14 @@
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
-		<key>app/controllers/events_controller.rb</key>
+		<key>Gemfile</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>38</integer>
+				<integer>9</integer>
 				<key>line</key>
-				<integer>26</integer>
+				<integer>20</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
@@ -39,17 +39,31 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>26</integer>
+				<integer>20</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>39</integer>
+				<integer>13</integer>
 				<key>line</key>
-				<integer>26</integer>
+				<integer>20</integer>
 			</dict>
+		</dict>
+		<key>app/controllers/authentication_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>21</integer>
+				<key>line</key>
+				<integer>14</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>app/controllers/messages_controller.rb</key>
 		<dict>
@@ -64,64 +78,6 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>8</integer>
-		</dict>
-		<key>app/controllers/places_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>8</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/models/checkin.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>54</integer>
-				<key>line</key>
-				<integer>1</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/models/event.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>11</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>3</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>13</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
 		</dict>
 		<key>app/models/identity.rb</key>
 		<dict>
@@ -151,19 +107,49 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/models/place.rb</key>
+		<key>app/models/user.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>65</integer>
+				<integer>62</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>7</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+		</dict>
+		<key>db/migrate/20110207180559_create_users.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>27</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>8</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>32</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
 		</dict>
 		<key>db/migrate/20110222202643_add_time_to_checkins.rb</key>
 		<dict>
@@ -228,44 +214,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>171</integer>
+				<integer>6</integer>
 				<key>line</key>
-				<integer>58</integer>
+				<integer>12</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>37</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>163</integer>
-				<key>line</key>
-				<integer>58</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>176</integer>
-				<key>line</key>
-				<integer>58</integer>
-			</dict>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>app/controllers/places_controller.rb</string>
-		<string>app/controllers/events_controller.rb</string>
+		<string>Gemfile</string>
 		<string>lib/tasks/sample_data.rake</string>
-		<string>db/migrate/20110226005347_add_message_to_checkins.rb</string>
-		<string>app/controllers/messages_controller.rb</string>
-		<string>db/migrate/20110225180335_add_foursquare_id_to_places.rb</string>
-		<string>app/models/event.rb</string>
-		<string>app/models/place.rb</string>
-		<string>app/models/message.rb</string>
-		<string>app/models/checkin.rb</string>
+		<string>app/models/user.rb</string>
+		<string>db/migrate/20110207180559_create_users.rb</string>
+		<string>app/controllers/authentication_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

@@ -20,7 +20,7 @@ namespace :db do
     
     # Create identities for some of the users
     User.all(:limit => 20).each do |user|
-      4.times do |n|
+      3.times do |n|
         user.identities.create!(:identity_name => "My Identity #{n+1}", 
                                 :first_name => user.first_name,
                                 :last_name => user.last_name,
