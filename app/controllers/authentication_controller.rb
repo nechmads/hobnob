@@ -9,8 +9,9 @@ class AuthenticationController < ApplicationController
                          :password_salt => "pasword",
                          :email => "my@email.com")
      
-      @user.password = "testme"
-      
+      @user.password = "passwordbig"
+      @user.password_salt = "passwordbig"
+      @user.encrypted_password = "passwordevenbigger"
       @user.first_name = params["first_name"]
       @user.last_name = params["last_name"]
       @user.reset_authentication_token
