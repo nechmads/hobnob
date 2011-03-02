@@ -1,19 +1,15 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
-      t.database_authenticatable
-      t.recoverable
+      t.database_authenticatable :null => true
       t.rememberable
       t.trackable
       t.token_authenticatable
-      t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       
       t.timestamps
     end
     
     add_index :users, :email,                :unique => true
-    add_index :users, :reset_password_token, :unique => true
-    add_index :users, :unlock_token,         :unique => true
     add_index :users, :authentication_token, :unique => true
   end
 
