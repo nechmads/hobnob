@@ -4,14 +4,8 @@ class AuthenticationController < ApplicationController
         
     if found_user == nil
        @user = User.new(:linkedin_id => params['linkedin_id'],
-                         :password => "password",
-                         :encrypted_password => "password",
-                         :password_salt => "pasword",
                          :email => "my@email.com")
      
-      @user.password = "passwordbig"
-      @user.password_salt = "passwordbig"
-      @user.encrypted_password = "passwordevenbigger"
       @user.first_name = params["first_name"]
       @user.last_name = params["last_name"]
       @user.reset_authentication_token
