@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   def location
     respond_to do |format|
       format.json {
-        if current_user.update_attributes(params[:user], :last_location_update_time => Time.now)
+        if current_user.update_attributes(:lng => params[:lng], :lat => params[:lat], :last_location_update_time => Time.now)
           render :json => current_user
         else
           render :status => :bad_request, :json => ""
@@ -99,6 +99,10 @@ class UsersController < ApplicationController
   def nearby
     respond_to do |format|
       format.json {
+        if (params["lat"] != nil && params[lng] != nil)
+          current_user.update_attributes(:lat => params["lat"], :lng => params[lng], :last_location_update_time => Time.now)
+        end
+        
         @near_by_users = User.within(10, :origin => current_user).all
         @identities = Array.new
         @near_by_users.each do |user|

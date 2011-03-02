@@ -3,7 +3,7 @@ require 'faker'
 namespace :db do
   desc "Fill db with sample data"
   task :populate => :environment do
-    #Rake::Task['db:reset'].invoke
+    Rake::Task['db:reset'].invoke
     
     # Create one known user
     #admin = User.create(:first_name => "john", :last_name => "malkovich", :email => "john@malkovich.com", 
@@ -56,9 +56,9 @@ namespace :db do
     # Create places
     20.times do |n|
       name = Faker::Company.name
-      Place.create(:name => name, :lat => "37.7#{n}417", :lng => "-122.3#{n}568", :isTimeBase => true, :start => Time.now - 10.days, :end => Time.now + 200.days, :foursquare_id => "468aa2b5f964a52060481fe3")
+      Place.create(:name => name, :lat => "36.6#{n}117", :lng => "-121.8#{n}868", :isTimeBase => true, :start => Time.now - 10.days, :end => Time.now + 200.days, :foursquare_id => "468aa2b5f964a52060481fe3")
     end
-    
+
     # Create events
     placeId = Place.first().id;
     
