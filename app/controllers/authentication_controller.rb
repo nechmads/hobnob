@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
       @user.first_name = params["first_name"]
       @user.last_name = params["last_name"]
       @user.reset_authentication_token
-      if @user.save
+      if @user.save!
         sign_in @user
         user_json = ActiveSupport::JSON.decode(params['user'])
         default_identity = create_default_identity(user_json['identity'][0]) unless params['user'] == nil
