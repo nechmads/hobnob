@@ -6,6 +6,7 @@ class AuthenticationController < ApplicationController
        @user = User.new(:linkedin_id => params['linkedin_id'],
                          :password => "password",
                          :encrypted_password => "password",
+                         :password_salt => "pasword",
                          :email => "my@email.com")
                          
       @user.first_name = params["first_name"]
