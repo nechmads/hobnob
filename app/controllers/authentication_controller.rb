@@ -4,7 +4,8 @@ class AuthenticationController < ApplicationController
         
     if found_user == nil
        @user = User.new(:linkedin_id => params['linkedin_id'],
-                         :email => "my@email.com")
+                         :email => "my@email.com",
+                         :password => "password")
      
       @user.first_name = params["first_name"]
       @user.last_name = params["last_name"]
