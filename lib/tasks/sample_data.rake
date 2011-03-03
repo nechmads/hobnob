@@ -24,8 +24,8 @@ namespace :db do
         user.identities.create!(:identity_name => "My Identity #{n+1}", 
                                 :first_name => user.first_name,
                                 :last_name => user.last_name,
-                                :company_name => Faker::Company.name,
-                                :title => Faker::Company.suffix,
+                                :company_name => "Bla Partners",
+                                :title => "CEO",
                                 :industry => "Internet",
                                 :country => "USA",
                                 :state => Faker::Address.us_state_abbr,
@@ -50,7 +50,7 @@ namespace :db do
                                 
       end
       
-      user.update_attributes(:default_identity_id => user.identities.first.id, :lat => "37.79" + rand().to_s.delete("."), :lng => "-122.40" + rand().to_s.delete("."), :last_location_update_time => Time.now)
+      user.update_attributes(:default_identity_id => user.identities.first.id, :lat => "36.64" + rand().to_s.delete("."), :lng => "-121.84" + rand().to_s.delete("."), :last_location_update_time => Time.now)
     end
     
     # Create places
@@ -65,19 +65,19 @@ namespace :db do
     2.times do |c|
       3.times do |t|
         name = Faker::Company.name
-        Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now, :place_id => placeId)
+        Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now + 9.days, :place_id => placeId)
       end
       3.times do |t|
         name = Faker::Company.name
-        Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now + 1.hour, :place_id => placeId)
+        Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now + 9.days + 1.hour, :place_id => placeId)
       end
       3.times do |t|
         name = Faker::Company.name
-        Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now + 1.day, :place_id => placeId)
+        Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now + 10.days + 1.day, :place_id => placeId)
       end
        3.times do |t|
           name = Faker::Company.name
-          Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now + 2.day, :place_id => placeId)
+          Event.create(:name => name, :track => t, :collection => c, :description => Faker::Lorem.sentence, :event_type => 1, :time => Time.now + 11.day, :place_id => placeId)
       end
     end
     
