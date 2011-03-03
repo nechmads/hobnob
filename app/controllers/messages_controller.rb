@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
         @new_message.recipient_id = params[:recipient_id]
         @new_message.sender_id = current_user.id
         @new_message.is_read = false
+        @new_message.sent_time = Time.now
         if @new_message.save
           render :json => @new_message
         else
